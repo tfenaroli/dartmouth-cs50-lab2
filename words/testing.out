@@ -1,0 +1,54 @@
+## testing script
+
+# basic test
+./words < testfile.txt
+I
+am
+Thomas
+Fenaroli
+
+# test with testfile.txt
+./words testfile.txt
+I
+am
+Thomas
+Fenaroli
+
+# test with testfile2.txt
+./words testfile2.txt
+Who
+are
+you
+
+# test with both test files
+./words testfile.txt testfile2.txt
+I
+am
+Thomas
+Fenaroli
+Who
+are
+you
+
+# test with special file name
+./words - testfile.txt testfile2.txt
+I
+am
+Thomas
+Fenaroli
+Who
+are
+you
+
+# test with special file name
+./words testfile.txt - testfile2.txt
+Who
+are
+you
+
+# test with special file name
+./words testfile.txt testfile2.txt -
+
+# test with nonexistent file name
+./words incorrectfilename.txt
+File not found
