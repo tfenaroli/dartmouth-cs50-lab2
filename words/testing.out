@@ -2,17 +2,15 @@
 
 # basic test
 ./words < testfile.txt
-I
-am
+Hi
+im
 Thomas
-Fenaroli
 
 # test with testfile.txt
 ./words testfile.txt
-I
-am
+Hi
+im
 Thomas
-Fenaroli
 
 # test with testfile2.txt
 ./words testfile2.txt
@@ -22,32 +20,48 @@ you
 
 # test with both test files
 ./words testfile.txt testfile2.txt
-I
-am
+Hi
+im
 Thomas
-Fenaroli
 Who
 are
 you
 
 # test with special file name
-./words - testfile.txt testfile2.txt
-I
-am
+./words - < testfile.txt testfile.txt testfile2.txt
+Hi
+im
 Thomas
-Fenaroli
+Hi
+im
+Thomas
 Who
 are
 you
 
 # test with special file name
-./words testfile.txt - testfile2.txt
+./words testfile.txt - < testfile.txt testfile2.txt
+Hi
+im
+Thomas
+Hi
+im
+Thomas
 Who
 are
 you
 
 # test with special file name
-./words testfile.txt testfile2.txt -
+./words testfile.txt testfile2.txt - < testfile.txt
+Hi
+im
+Thomas
+Who
+are
+you
+Hi
+im
+Thomas
 
 # test with nonexistent file name
 ./words incorrectfilename.txt

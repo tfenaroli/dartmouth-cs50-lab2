@@ -21,14 +21,22 @@ int main( int argc, char *argv[] ) {
     }
 
     else if (argc>1) {
-        for (int j=0; j<argc; j++) {
-            int res;
-            res = strcmp("-", argv[j]);
-            if (res==0) {
-                startingIndex = j + 1;
-            }
-        }
         for (int i=startingIndex; i<argc; i++) {
+            int res;
+            res = strcmp("-", argv[i]);
+            if (res==0) {
+                char c;
+                while ((c = fgetc(stdin)) != EOF) {
+                    if (!isalpha(c)) {
+                        printf("\n");
+                    }
+                    else {
+                        printf("%c", c);
+                    }
+                }
+                printf("\n");
+            }
+            else {
             FILE* filePointer;
             char* fileName = argv[i];
             filePointer = fopen(fileName, "r");
@@ -48,8 +56,8 @@ int main( int argc, char *argv[] ) {
                 fprintf(stderr, "File not found");
                 return 1;
             }
+            }
         }
     }
-
     return 0;
 }
