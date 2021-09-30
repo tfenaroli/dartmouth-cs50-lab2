@@ -17,4 +17,3 @@
 
 # testing improper number of arguments
 ./chill 1.0 2.0 3.0 4.0
-

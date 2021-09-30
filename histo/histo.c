@@ -2,6 +2,8 @@
 #include<stdlib.h>
 #include<memory.h>
 
+
+// main function
 int main() {
 
     int binCount = 16;
@@ -9,16 +11,21 @@ int main() {
     int binSize = 1;
     int bins[binCount];
 
+    // fills array
     for (int i=0; i<binCount; i++) {
         bins[i] = 0;
     }
 
     printf("16 bins of size %d for range [0, %d)\n", binSize, binRange);
     int val;
+
+    // takes standard in
     while (scanf("%d", &val) == 1) {
         if (val < 0) {
             continue;
         }
+
+        // adjusts bins for high values
         while (val > binRange - 1) {
             binSize *= 2;
             binRange *= 2;
@@ -42,6 +49,7 @@ int main() {
     int intervalStart = 0;
     int intervalEnd = binSize - 1;
 
+    // prints histogram
     for (int i=0; i<binCount; i++) {   
         printf("[% 6d:% 6d] ", intervalStart, intervalEnd);
         for (int j=0; j<bins[i]; j++) {
